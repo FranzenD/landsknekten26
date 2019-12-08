@@ -1,4 +1,5 @@
 # landsknekten26
+To be able to run, first add your firebase config to src/firebase.config.js
 
 ## Project setup
 ```
