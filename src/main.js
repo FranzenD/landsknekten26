@@ -6,11 +6,15 @@ import firebase from 'firebase';
 import config from './firebase.config';
 
 Vue.config.productionTip = false;
+let app = '';
 
 firebase.initializeApp(config);
-
-new Vue({
-  store,
-  router,
-  render: h => h(App)
-}).$mount('#app')
+firebase.auth().onAuthStateChanged(() => {
+   if (!app) {
+      app = new Vue({
+         store,
+         router,
+         render: h => h(App)
+      }).$mount('#app');
+   }
+});
