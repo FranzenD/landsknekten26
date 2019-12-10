@@ -9,49 +9,51 @@
 </template>
 
 <script>
-   import firebase from 'firebase/app';
+import firebase from 'firebase/app';
 
-   export default {
-      name: 'login',
-      data() {
-         return {
-            email: '',
-            password: ''
-         };
+export default {
+   name: 'Login',
+   data() {
+      return {
+         email: '',
+         password: ''
+      };
+   },
+   computed: {},
+   methods: {
+      login() {
+         firebase
+            .auth()
+            .signInWithEmailAndPassword(this.email, this.password)
+            .then(user => {
+               console.log('authenticated!');
+               this.$router.replace('/home');
+            })
+            .catch(function(error) {
+               // Handle Errors here.
+
+               const errorCode = error.code;
+               const errorMessage = error.message;
+               console.log(error);
+               console.log(`Error code: ${errorCode} message: ${errorMessage}`);
+            });
       },
-      methods: {
-         login() {
-            firebase
-               .auth()
-               .signInWithEmailAndPassword(this.email, this.password)
-               .then(user => {
-                  console.log('authenticated!');
-                  this.$router.replace('/home');
-               })
-               .catch(function(error) {
-                  // Handle Errors here.
-
-                  const errorCode = error.code;
-                  const errorMessage = error.message;
-                  console.log(error);
-                  console.log(
-                     `Error code: ${errorCode} message: ${errorMessage}`
-                  );
-               });
-         },
-         logout() {
-            firebase.auth().signOut().then(() => {
-                  alert('logged out');
-               });
-         }
+      logout() {
+         firebase
+            .auth()
+            .signOut()
+            .then(() => {
+               alert('logged out');
+            });
       }
-   };
+   }
+};
 </script>
 
 <style lang="scss" scoped>
-   .login {
-      input {
-         padding: 10px;
-      }
+.login {
+   input {
+      padding: 10px;
    }
+}
 </style>

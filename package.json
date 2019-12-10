@@ -1,51 +1,61 @@
 {
-  "name": "landsknekten26",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
-  },
-  "dependencies": {
-    "core-js": "^2.6.5",
-    "firebase": "^7.5.2",
-    "vue": "^2.6.10",
-    "vue-router": "^3.0.3",
-    "vuex": "^3.0.1"
-  },
-  "devDependencies": {
-    "@vue/cli-plugin-babel": "^3.0.0",
-    "@vue/cli-plugin-eslint": "^3.0.0",
-    "@vue/cli-service": "^3.0.0",
-    "babel-eslint": "^10.0.1",
-    "eslint": "^5.16.0",
-    "eslint-plugin-vue": "^5.0.0",
-    "sass": "^1.23.7",
-    "sass-loader": "^8.0.0",
-    "vue-template-compiler": "^2.6.10"
-  },
-  "eslintConfig": {
-    "root": true,
-    "env": {
-      "node": true
-    },
-    "extends": [
-      "plugin:vue/essential",
-      "eslint:recommended"
-    ],
-    "rules": {},
-    "parserOptions": {
-      "parser": "babel-eslint"
-    }
-  },
-  "postcss": {
-    "plugins": {
-      "autoprefixer": {}
-    }
-  },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions"
-  ]
+   "name": "landsknekten26",
+   "version": "0.1.0",
+   "private": true,
+   "scripts": {
+      "serve": "vue-cli-service serve",
+      "build": "vue-cli-service build",
+      "lint": "vue-cli-service lint"
+   },
+   "dependencies": {
+      "core-js": "^2.6.11",
+      "firebase": "^7.5.2",
+      "vue": "^2.6.10",
+      "vue-router": "^3.0.3",
+      "vuex": "^3.0.1"
+   },
+   "devDependencies": {
+      "@vue/cli-plugin-babel": "^3.0.0",
+      "@vue/cli-plugin-eslint": "^3.0.0",
+      "@vue/cli-service": "^4.1.1",
+      "@vue/eslint-config-prettier": "^6.0.0",
+      "babel-eslint": "^10.0.1",
+      "eslint": "^5.16.0",
+      "eslint-plugin-prettier": "^3.1.1",
+      "eslint-plugin-vue": "^5.0.0",
+      "prettier": "^1.19.1",
+      "sass": "^1.23.7",
+      "sass-loader": "^8.0.0",
+      "vue-template-compiler": "^2.6.10"
+   },
+   "prettier": {
+      "singleQuote": true,
+      "tabWidth": 3
+   },
+   "eslintConfig": {
+      "root": true,
+      "env": {
+         "node": true
+      },
+      "extends": [
+         "plugin:vue/recommended",
+         "@vue/prettier"
+      ],
+      "rules": {},
+      "parserOptions": {
+         "parser": "babel-eslint"
+      },
+      "plugins": [
+         "prettier"
+      ]
+   },
+   "postcss": {
+      "plugins": {
+         "autoprefixer": {}
+      }
+   },
+   "browserslist": [
+      "> 1%",
+      "last 2 versions"
+   ]
 }
