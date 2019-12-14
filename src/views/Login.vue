@@ -10,6 +10,7 @@
 
 <script>
 import firebase from 'firebase/app';
+import 'firebase/firestore';
 
 export default {
    name: 'Login',
@@ -22,11 +23,10 @@ export default {
    computed: {},
    methods: {
       login() {
-         firebase
-            .auth()
-            .signInWithEmailAndPassword(this.email, this.password)
-            .then(user => {
+         // prettier-ignore
+         firebase.auth().signInWithEmailAndPassword(this.email, this.password).then(response => {
                console.log('authenticated!');
+               this.updateOrCreateUser(response.user);
                this.$router.replace('/home');
             })
             .catch(function(error) {
@@ -39,11 +39,38 @@ export default {
             });
       },
       logout() {
-         firebase
-            .auth()
-            .signOut()
-            .then(() => {
-               alert('logged out');
+         // prettier-ignore
+         firebase.auth().signOut().then(() => {
+               console.log('logged out');
+            });
+      },
+      updateOrCreateUser(user) {
+         const db = firebase.firestore();
+         var docRef = db.collection('users').doc(user.uid);
+
+         docRef
+            .get()
+            .then(function(doc) {
+               if (doc.exists) {
+                  console.log('Document data:', doc.data());
+               } else {
+                  // doc.data() will be undefined in this case
+                  const newUser = {
+                     uid: user.uid,
+                     name: '',
+                     displayName: '',
+                     lastLogin: new Date()
+                  };
+                  db.collection('users')
+                     .doc(user.uid)
+                     .set(newUser)
+                     .then(() => {
+                        console.log('user created');
+                     });
+               }
+            })
+            .catch(function(error) {
+               console.log('Error getting document:', error);
             });
       }
    }
