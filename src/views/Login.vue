@@ -53,6 +53,9 @@ export default {
             .then(function(doc) {
                if (doc.exists) {
                   console.log('Document data:', doc.data());
+                  docRef.update({
+                     lastLogin: new Date()
+                  });
                } else {
                   // doc.data() will be undefined in this case
                   const newUser = {

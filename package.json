@@ -26,6 +26,7 @@
       "prettier": "^1.19.1",
       "sass": "^1.23.7",
       "sass-loader": "^8.0.0",
+      "vue-cal": "^2.18.0",
       "vue-template-compiler": "^2.6.10"
    },
    "prettier": {
@@ -52,7 +53,6 @@
          "prefer-const": "warn",
          "no-unused-vars": "warn",
          "vue/require-default-prop": "off"
-      
       },
       "parserOptions": {
          "parser": "babel-eslint",
