@@ -10,6 +10,7 @@
    "dependencies": {
       "core-js": "^2.6.11",
       "firebase": "^7.5.2",
+      "focus-visible": "^5.0.2",
       "vue": "^2.6.10",
       "vue-router": "^3.0.3",
       "vuex": "^3.0.1"
@@ -52,7 +53,6 @@
          "prefer-const": "warn",
          "no-unused-vars": "warn",
          "vue/require-default-prop": "off"
-      
       },
       "parserOptions": {
          "parser": "babel-eslint",

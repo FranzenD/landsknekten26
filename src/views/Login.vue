@@ -1,19 +1,23 @@
 <template>
    <div class="login">
       <p>LOGGA IN</p>
-      <input v-model="email" type="text" placeholder="Användarnamn" />
-      <input v-model="password" type="password" placeholder="Lösenord" />
-      <button @click="login">Logga in</button>
-      <button @click="logout">Logga ut</button>
+      <v-input v-model="email" type="text" placeholder="Epost" />
+      <v-input v-model="password" type="password" placeholder="Lösenord" />
+      <button type="button" class="btn" @click="login">Logga in</button>
+      <button type="button" class="btn" @click="logout">Logga ut</button>
    </div>
 </template>
 
 <script>
 import firebase from 'firebase/app';
 import 'firebase/firestore';
+import VInput from '@/components/VInput.vue';
 
 export default {
    name: 'Login',
+   components: {
+      VInput
+   },
    data() {
       return {
          email: '',
@@ -79,6 +83,10 @@ export default {
 
 <style lang="scss" scoped>
 .login {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+
    input {
       padding: 10px;
    }
