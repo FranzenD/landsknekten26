@@ -40,3 +40,9 @@ input[type='button'] {
    outline: none;
    box-shadow: none;
 }
+
+.vuecal__event.washing {
+   background-color: rgba(220, 22, 22, 0.575);
+   border: 1px solid #b31313;
+   color: #fff;
+}

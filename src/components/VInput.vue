@@ -1,5 +1,5 @@
 <template>
-   <div>
+   <div class="input-container">
       <label v-if="showLabel" :for="name" class="label">{{ label }}</label>
       <input
          :type="type"
@@ -39,7 +39,12 @@ export default {
    display: block;
    margin-bottom: 5px;
 }
-
+.input-container {
+   display: inline-flex;
+   flex-direction: column;
+   align-items: flex-start;
+   margin: 5px;
+}
 .input {
    border: solid 1px;
    border-radius: 3px;

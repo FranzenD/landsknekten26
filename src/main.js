@@ -7,6 +7,7 @@ import 'firebase/auth';
 import config from './firebase.config';
 import './styles/global.scss';
 import '../node_modules/focus-visible/dist/focus-visible.js';
+import 'vue-datetime/dist/vue-datetime.css';
 
 Vue.config.productionTip = false;
 let app = '';
