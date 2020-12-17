@@ -2,11 +2,10 @@
    <div class="input-container">
       <label v-if="showLabel" :for="name" class="label">{{ label }}</label>
       <input
-         :type="type"
-         :value="value"
-         :name="name"
-         :placeholder="placeholder"
+         v-bind="$attrs"
          class="input"
+         :name="name"
+         :value="value"
          @input="$emit('input', $event.target.value)"
       />
    </div>
@@ -15,12 +14,14 @@
 <script>
 export default {
    name: 'VInput',
+   inheritAttrs: false,
    props: {
       label: String,
       name: String,
-      placeholder: String,
-      type: String,
-      value: String
+      value: {
+         type: String,
+         default: ''
+      }
    },
    data() {
       return {};
