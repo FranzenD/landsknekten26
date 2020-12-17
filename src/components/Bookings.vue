@@ -3,14 +3,17 @@
       <vue-cal
          show-week-numbers
          locale="sv"
-         :time-from="8 * 60"
+         :time-from="6 * 60"
          :events="bookings"
          class="vuecal--blue-theme"
+         :disable-views="['years']"
          @ready="fetchBookings"
          @view-change="viewChange"
          @cell-click="cellClicked"
          @event-focus="eventFocus"
-      />
+      >
+         <template #no-event>Ledigt</template>
+      </vue-cal>
    </div>
 </template>
 
